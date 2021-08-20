@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 ARG GORELEASER_VERSION
 ARG GORELEASER_SHA
 ARG APT_MIRROR
-LABEL maintainer="Alexander Adhyatma <alexadhyatma dot mailbox dot org>"
+LABEL maintainer="Skycoin <skycoin dot com>"
 
 COPY entrypoint.sh /
 

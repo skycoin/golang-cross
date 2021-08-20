@@ -93,7 +93,7 @@ RUN \
  && UNATTENDED=yes OSX_VERSION_MIN=${OSX_VERSION_MIN} ./build.sh
 
 FROM osx-cross-base AS final
-LABEL maintainer="Alexander Adhyatma <alexadhyatma dot mailbox dot org>"
+LABEL maintainer="Skycoin <skycoin dot com>"
 ARG DEBIAN_FRONTEND=noninteractive
 
 COPY --from=osx-cross "${OSX_CROSS_PATH}/." "${OSX_CROSS_PATH}/"

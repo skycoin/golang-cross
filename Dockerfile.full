@@ -1,6 +1,6 @@
 # golang parameters
 ARG GO_VERSION
-FROM alexadhyatma/golang-cross:v${GO_VERSION}-base AS base
+FROM skycoin/golang-cross:v${GO_VERSION}-base AS base
 
 ENV OSX_CROSS_PATH=/osxcross
 
@@ -78,7 +78,6 @@ RUN \
  && UNATTENDED=yes OSX_VERSION_MIN=${OSX_VERSION_MIN} ./build.sh
 
 FROM osx-cross-base AS final
-LABEL maintainer="Alexander Adhyatma <alexadhyatma at mailbox dot org>"
 ARG DEBIAN_FRONTEND=noninteractive
 COPY --from=osx-cross "${OSX_CROSS_PATH}/." "${OSX_CROSS_PATH}/"
 ENV PATH=${OSX_CROSS_PATH}/target/bin:$PATH

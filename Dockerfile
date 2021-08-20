@@ -1,7 +1,7 @@
 ARG GO_VERSION
-FROM alexadhy/golang-cross-builder:v${GO_VERSION}
+FROM skycoin/golang-cross-builder:v${GO_VERSION}
 
-LABEL maintainer="Alexander Adhyatma <alexadhyatma dot mailbox dot org>"
+LABEL maintainer="Skycoin <skycoin dot com>"
 
 COPY entrypoint.sh /
 

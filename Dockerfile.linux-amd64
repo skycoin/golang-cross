@@ -1,7 +1,7 @@
 # golang parameters
 ARG GO_VERSION
 
-FROM alexadhyatma/golang-cross:v${GO_VERSION}-base
+FROM skycoin/golang-cross:v${GO_VERSION}-base
 
 # Install deps
 RUN \
