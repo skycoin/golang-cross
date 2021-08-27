@@ -1,0 +1,20 @@
+name: release
+on:
+  push:
+    tags:
+      - v*
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+      - name: setup environment
+        run: |-
+          echo "${{secrets.DOCKER_PASSWORD}}" | docker login -u "${{secrets.DOCKER_USERNAME}}" --password-stdin
+          # echo "${{secrets.GHCR_DOCKER_PASSWORD}}" | docker login ghcr.io -u "${{secrets.GHCR_DOCKER_USERNAME}}" --password-stdin
+      - run: make golang-cross-base
+      - run: make golang-cross
+      - run: make subimages
+      - run: make docker-push
